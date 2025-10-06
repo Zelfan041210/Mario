@@ -1,6 +1,6 @@
-package classes;
+package main.java.classes;
 
-import Tools.SpriteSheetLoader;
+import main.java.tools.SpriteSheetLoader;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
@@ -26,8 +26,8 @@ public class Mario {
         this.x = startX;
         this.y = startY;
 
-        SpriteSheetLoader loader = new SpriteSheetLoader("src/sprites/Mario.json");
-        spriteMap = loader.loadSprites("src/sprites/Mario.json");
+        SpriteSheetLoader loader = new SpriteSheetLoader("Mario.json");
+        spriteMap = loader.loadSprites();
 
         //run animation
         this.runAnimation = new Animation(

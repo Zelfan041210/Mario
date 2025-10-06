@@ -1,4 +1,4 @@
-package com.sxt;
+package main.java.state;
 
 public enum GameState {
     MENU,

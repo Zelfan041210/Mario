@@ -1,12 +1,9 @@
-package classes;
+package main.java.classes;
 
-import com.sxt.GameState;
+import main.java.state.GameState;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class GamePanel extends JPanel {

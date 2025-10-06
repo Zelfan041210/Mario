@@ -1,20 +1,18 @@
-package classes;
+package main.java.classes;
 
-import Tools.SpriteSheet;
-import Tools.SpriteSheetLoader;
-import com.sxt.GameState;
+import main.java.tools.SpriteSheet;
+import main.java.tools.SpriteSheetLoader;
+import main.java.state.GameState;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.*;
 
 public class Menu {
     private SpriteSheet menuSpriteSheet = new SpriteSheet("title_screen.png");
@@ -29,14 +27,15 @@ public class Menu {
 
     public Menu() throws IOException {
 
-        SpriteSheetLoader loader1 = new SpriteSheetLoader("src/sprites/BackgroundSprites.json");
-        spriteMap1 = loader1.loadSprites("src/sprites/BackgroundSprites.json");
+        SpriteSheetLoader loader1 = new SpriteSheetLoader("BackgroundSprites.json");
+        spriteMap1 = loader1.loadSprites();
 
-        SpriteSheetLoader loader2 = new SpriteSheetLoader("src/sprites/Mario.json");
-        spriteMap2 = loader2.loadSprites("src/sprites/Mario.json");
 
-        SpriteSheetLoader loader3 = new SpriteSheetLoader("src/sprites/Goomba.json");
-        spriteMap3 = loader3.loadSprites("src/sprites/Goomba.json");
+        SpriteSheetLoader loader2 = new SpriteSheetLoader("Mario.json");
+        spriteMap2 = loader2.loadSprites();
+
+        SpriteSheetLoader loader3 = new SpriteSheetLoader("Goomba.json");
+        spriteMap3 = loader3.loadSprites();
 
 
         banner = menuSpriteSheet.imageAt(0, 60, 2, new Color(255, 0, 220),
@@ -126,9 +125,13 @@ public class Menu {
     }
     public List<String> loadLevelNames(){
         List<String> res = new ArrayList<>();
-        File dir = new File("src/levels");
+        File dir = new File("src/main/resources/levels");
         File[] files = dir.listFiles();
+        if (files == null) {
+            System.out.println("No levels found");
+        }
         if(files!=null){
+            Arrays.sort(files, (file1, file2) -> file1.getName().compareTo(file2.getName()));
             for (File file : files) {
                 if(file.isFile()){
                     String name = file.getName();

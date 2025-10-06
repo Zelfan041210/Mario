@@ -1,6 +1,6 @@
-package classes;
+package main.java.classes;
 
-import Tools.SpriteSheet;
+import main.java.tools.SpriteSheet;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

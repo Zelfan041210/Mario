@@ -1,5 +1,5 @@
 {
-    "spriteSheetURL": "D:/2_CS/Javaproject/Mario/src/img/tiles.png",
+    "spriteSheetURL": "img/tiles.png",
     "type":"background",
     "size":[16,16],
     "sprites":[

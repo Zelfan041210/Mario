@@ -1,13 +1,15 @@
-package com.sxt;
+package main.java.classes;
 
-import classes.Mario;
-import classes.GamePanel;
-import classes.Menu;
+import main.java.state.GameState;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 
 public class MyFrame extends JFrame implements KeyListener {
 
@@ -38,6 +40,12 @@ public class MyFrame extends JFrame implements KeyListener {
 
         mario = new Mario(2*32,12*32);
         menu = new Menu();
+        if(menu == null) {
+            System.out.println("Menu is null");
+        } else if(mario == null) {
+            System.out.println("Mario is null");
+        } else
+            System.out.println("FULL");
         panel = new GamePanel(mario,menu);
         this.setContentPane(panel);
 
@@ -49,9 +57,11 @@ public class MyFrame extends JFrame implements KeyListener {
 
         this.setVisible(true);
 
+
     }
 
     public static void main(String[] args) throws IOException {
+
         MyFrame myFrame = new MyFrame();
 
     }
