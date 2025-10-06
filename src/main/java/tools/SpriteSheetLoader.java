@@ -6,19 +6,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import java.io.*;
-import java.awt.image.*;
 import java.net.URL;
-import java.util.*;
-import javax.imageio.ImageIO;
-import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.databind.node.*;
-import main.java.classes.ImageLoaderTest;
 
 public class SpriteSheetLoader {
     private BufferedImage spriteSheet;
@@ -45,7 +38,7 @@ public class SpriteSheetLoader {
             String spriteSheetURL = root.get("spriteSheetURL").asText();
 
 
-            InputStream inputImage = ImageLoaderTest.class.getClassLoader().getResourceAsStream(spriteSheetURL);
+            InputStream inputImage = getClass().getClassLoader().getResourceAsStream(spriteSheetURL);
             spriteSheet = ImageIO.read(inputImage);
             if (spriteSheet == null) {
                 throw new IOException("Failed to load sprite sheet: " + spriteSheetURL);

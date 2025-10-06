@@ -1,11 +1,8 @@
 package main.java.tools;
 
-import main.java.classes.ImageLoaderTest;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -16,7 +13,7 @@ public class SpriteSheet {
     public SpriteSheet(String path) throws IOException {
         System.out.println("Attempting to load sprite sheet from: img/" + path);
 
-        InputStream inputStream = ImageLoaderTest.class.getClassLoader().getResourceAsStream("img/" + path);
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("img/" + path);
         spritesheet = ImageIO.read(inputStream);
         this.path = path;
     }
